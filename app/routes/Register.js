@@ -31,7 +31,7 @@ router.get("/",async (res,req,next)=>{
         })
     }
 })
-router.get("/create",async (req,res,next) => {
+router.post("/create",async (req,res,next) => {
     try{
         console.log()
         const uuid = uuidv4();
