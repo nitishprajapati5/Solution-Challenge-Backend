@@ -38,7 +38,7 @@ router.get("/create",async (req,res,next) => {
         const checkData = await model.Register.findAll({
             where :{
                 [Op.or]:{
-                    emailAddress : req.body.emailAddress,
+                    emailAddress : req.body.data.emailAddress,
                 },
             },
         });
@@ -53,21 +53,21 @@ router.get("/create",async (req,res,next) => {
             const tokenUUID = uuid;
 
             const userData = await model.Register.create({
-                emailAddress:req.body.emailAddress,
-                password:req.body.password,
-                confirmPassword:req.body.confirmPassword,
+                emailAddress:req.body.data.emailAddress,
+                password:req.body.data.password,
+                confirmPassword:req.body.data.confirmPassword,
                 token:tokenUUID,
-                Name:req.body.Name
+                Name:req.body.data.Name
             }).then((result) =>{
                 res.status(201).json({
                     message : "User Successfully Created",
                     statusCode:"SUCCESS",
                     data:{
-                        emailAddress:req.body.emailAddress,
-                        password:req.body.password,
-                        confirmPassword:req.body.confirmPassword,
+                        emailAddress:req.body.data.emailAddress,
+                        password:req.body.data.password,
+                        confirmPassword:req.body.data.confirmPassword,
                         token:tokenUUID,
-                        Name:req.body.Name
+                        Name:req.body.data.Name
                     }
                 });
             });
