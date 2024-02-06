@@ -1,7 +1,9 @@
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
 const app = express();
 const sequelize = require("./app/config/database")
 app.use(express.json());
+app.use(cors());
 //#region 
 // const sequelize = new Sequelize(dbConfig.DB,dbConfig.USER,dbConfig.PASSWORD,{
 //     host:dbConfig.HOST,
