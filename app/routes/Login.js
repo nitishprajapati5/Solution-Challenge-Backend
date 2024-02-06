@@ -45,5 +45,33 @@ router.get('/LoginByIdandPassword',async(req,res,next)=> {
     }
 })
 
+router.get("/tokenbasedLogin",async (req,res)=>{
+    try{
+        const token = req.body.data.token;
+        const data = await Model.Register.findOne({
+            attributes : {
+                exclude : ["createdAt","updatedAt","password","confirmPassword"]
+            },
+            where:{
+                token : token,
+            }
+        });
+
+        res.status(200).json({
+            statusCode:200,
+            statusMessage:"SUCCESS",
+            data:data
+        });
+
+
+    }
+    catch(error){
+        res.status(400).json({
+            statusCode:400,
+            statusMessage:"FAILURE",
+            Messsage:error
+        })
+    }
+})
 module.exports = router;
 

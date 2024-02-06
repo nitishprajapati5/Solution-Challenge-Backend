@@ -16,5 +16,4 @@ var db = new Sequelize(
 );
 
 
-
 module.exports = db;

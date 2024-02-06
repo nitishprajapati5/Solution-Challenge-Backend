@@ -1,5 +1,6 @@
 const {DataTypes} = require('sequelize')
 const db = require("../config/database")
+const constants = require("../config/Constants.js")
 
 const Journal = db.define('Journal',{
     id:{
@@ -36,6 +37,22 @@ const Journal = db.define('Journal',{
 
 )
 
-Journal.sync();
+/* Area for Journal Setting for  Flag for Force and Alter Commands*/
+//#region 
+Journal.sync({alter:constants.ALTER_JOURNAL})
+.then(() => {
+    console.log('Journal table synced successfully with Affirmation Changes with flag set as ' + constants.ALTER_JOURNAL);
+})
+.catch((error) => {
+    console.error('Error syncing Journal table:', error);
+});
 
+Journal.sync({force:constants.FORCE_SYNC_JOURNAL})
+.then(() => {
+    console.log('Journal table synced successfully with force change and flag set as. ' + constants.FORCE_SYNC_JOURNAL);
+})
+.catch((error) => {
+    console.error('Error syncing Journal table:', error);
+});
+//#endregion
 module.exports = Journal;

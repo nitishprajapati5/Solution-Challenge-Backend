@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { Op } = require("sequelize")
 const Model = require("../models/index")
+
+
 /*This Route is Used for Creating an Affirmation with it's type and with the Notes */
 router.get("/CreateAffirmation",async (req,res,next) =>{
 
