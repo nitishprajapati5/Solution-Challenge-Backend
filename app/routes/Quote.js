@@ -31,7 +31,7 @@ router.post("/createQuote",async(req,res,next) =>{
     }
 })
 
-router.get("/getRandomQuotes", async (req, res, next) => {
+router.post("/getRandomQuotes", async (req, res, next) => {
     try {
         const checkToken = await Model.Register.findOne({
             where: {

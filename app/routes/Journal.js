@@ -3,7 +3,7 @@ const router = express.Router();
 const Model = require("../models/index")
 
 
-router.get("/CreateJournal",async (req,res,next)=>{
+router.post("/CreateJournal",async (req,res,next)=>{
     try{
         const token = req.body.token;
 
@@ -69,7 +69,7 @@ router.get("/GetAllJournal",async(req,res,next) => {
     }
 })
 
-router.get("/DeleteJournal",async(req,res,next) =>{
+router.post("/DeleteJournal",async(req,res,next) =>{
     try{
         const token = req.body.token;
 

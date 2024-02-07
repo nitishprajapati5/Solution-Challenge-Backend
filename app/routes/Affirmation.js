@@ -5,7 +5,7 @@ const Model = require("../models/index")
 
 
 /*This Route is Used for Creating an Affirmation with it's type and with the Notes */
-router.get("/CreateAffirmation",async (req,res,next) =>{
+router.post("/CreateAffirmation",async (req,res,next) =>{
 
     try{
         const token = req.body.token;
@@ -76,7 +76,7 @@ router.get("/GetAllAffirmation",async (req,res,next)=>{
 })
 
 /* This Route is Used for Getting Random Affirmation */
-router.get("/GetRandomAffirmation", async (req, res, next) => {
+router.post("/GetRandomAffirmation", async (req, res, next) => {
     try {
     const token = req.body.token;
 

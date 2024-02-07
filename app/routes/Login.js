@@ -1,20 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const Model = require("../models/index")
+const Model = require("../models/index");
+const { Op } = require('sequelize');
 
 
-router.get('/LoginByIdandPassword',async(req,res,next)=> {
+router.post('/LoginByIdandPassword',async(req,res,next)=> {
     try{
-        const emailAddress = req.body.emailAddress;
-        const password = req.body.password;
+        const emailAddress = req.body.data.emailAddress;
+        const password = req.body.data.password;
 
         const userData = await Model.Register.findOne({
             attributes:{
                 exclude:["emailAddress","password","confirmPassword","createdAt","updatedAt"]
             },
             where:{
-                emailAddress:emailAddress
+                [Op.and] : [
+                    {
+                        emailAddress:emailAddress
+                    },
+                    {
+                        password : password
+                    }
+                ]
+                
             }
+            
         })
 
         if(!userData || userData === null || userData.length === 0){
@@ -45,7 +55,7 @@ router.get('/LoginByIdandPassword',async(req,res,next)=> {
     }
 })
 
-router.get("/tokenbasedLogin",async (req,res)=>{
+router.post("/tokenbasedLogin",async (req,res)=>{
     try{
         const token = req.body.data.token;
         const data = await Model.Register.findOne({
