@@ -62,8 +62,9 @@ router.post("/create",async (req,res,next) => {
                 Name:req.body.data.Name
             }).then((result) =>{
                 res.status(201).json({
-                    message : "User Successfully Created",
-                    statusCode:"SUCCESS",
+                    Message : "User Successfully Created",
+                    MessageCode : "SUCCESS",
+                    statusCode:201,
                     data:{
                         emailAddress:req.body.data.emailAddress,
                         password:req.body.data.password,
