@@ -44,8 +44,10 @@ router.post("/create",async (req,res,next) => {
         });
         console.log(checkData.length);
         if(checkData.length > 0){
-            res.status(500).json({
-                message : "Email Address  has already in use"
+            res.status(409).json({
+                message : "Email Address  has already in use",
+                status:409,
+                statusMessage:"DUPLICATE"
             });
         }
         else{
