@@ -29,14 +29,14 @@ router.post('/LoginByIdandPassword',async(req,res,next)=> {
 
         if(!userData || userData === null || userData.length === 0){
             res.status(400).json({
-                message: "User Data is Not Present",
+                Message: "User Data is Not Present",
                 MessageCode: "BADREQUEST",
                 statusCode: 400
             });
         }  
         else{
             res.status(200).json({
-                message: "User Fetched Successfully",
+                Message: "User Fetched Successfully",
                 MessageCode: "SUCCESS",
                 statusCode: 200,
                 data:userData
@@ -47,7 +47,7 @@ router.post('/LoginByIdandPassword',async(req,res,next)=> {
     }
     catch(error){
         res.status(200).json({
-            message: error,
+            Message: error,
             MessageCode: "FAILURE",
             statusCode: 404,
             
@@ -69,7 +69,7 @@ router.post("/tokenbasedLogin",async (req,res)=>{
 
         res.status(200).json({
             statusCode:200,
-            statusMessage:"SUCCESS",
+            MessageCode:"SUCCESS",
             data:data
         });
 
@@ -78,8 +78,8 @@ router.post("/tokenbasedLogin",async (req,res)=>{
     catch(error){
         res.status(400).json({
             statusCode:400,
-            statusMessage:"FAILURE",
-            Messsage:error
+            MessageCode:"FAILURE",
+            Message:error
         })
     }
 })

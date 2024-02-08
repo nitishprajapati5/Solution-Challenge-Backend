@@ -19,7 +19,7 @@ router.post("/CreateAffirmation",async (req,res,next) =>{
 
         if(checkToken.length == 0 && checkToken.length >= 2){
             return res.status(400).json({
-                message:"Token is Invalid",
+                Message:"Token is Invalid",
                 MessageCode:"BADREQUEST",
                 statusCode:400
             })
@@ -31,7 +31,7 @@ router.post("/CreateAffirmation",async (req,res,next) =>{
             });
             
             res.status(201).json({
-                message: "Affirmation Created Successfully",
+                Message: "Affirmation Created Successfully",
                 MessageCode: "SUCCESS",
                 StatusCode:201
             });
@@ -40,7 +40,7 @@ router.post("/CreateAffirmation",async (req,res,next) =>{
     catch(error){
             console.log(error)
             res.status(404).json({
-                message:error,
+                Message:error,
                 MessageCode:"FAILURE",
                 StatusCode:404
             })
@@ -68,7 +68,7 @@ router.get("/GetAllAffirmation",async (req,res,next)=>{
     }
     catch(error){
         res.status(404).json({
-            message:error,
+            Message:error,
             MessageCode:"FAILURE",
             StatusCode:404
         })
@@ -88,7 +88,7 @@ router.post("/GetRandomAffirmation", async (req, res, next) => {
 
     if (checkToken.length == 0 && checkToken.length >= 2) {
         res.status(400).json({
-        message: "Token is Invalid",
+        Message: "Token is Invalid",
         MessageCode: "BADREQUEST",
         statusCode: 400
         });
@@ -123,7 +123,7 @@ router.post("/GetRandomAffirmation", async (req, res, next) => {
         }
         });
         res.status(200).json({
-        message: "Affirmation Fetch Successfully",
+        Message: "Affirmation Fetch Successfully",
         MessageCode: "Ok",
         statusCode: 200,
         data: userData
@@ -132,7 +132,7 @@ router.post("/GetRandomAffirmation", async (req, res, next) => {
     } catch (error) {
       //console.log(error);
     res.status(400).json({
-        message: "Token is Invalid",
+        Message: "Token is Invalid",
         MessageCode: "BADREQUEST",
         statusCode: 400
     });

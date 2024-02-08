@@ -53,12 +53,12 @@ app.use('/Quote',QuotesRoutes)
 app.use((req,res,next) =>{
     try{
         res.status(200).json({
-            message : "Server up and Running"
+            Message : "Server up and Running"
         });
     }
     catch(error){
         res.status(200).json({
-            message:error
+            Message:error
         });
     }
     

@@ -5,7 +5,7 @@ const { Op } = require("sequelize")
 const { v4: uuidv4 } = require('uuid');
 /*router.get('/',(req,res,next) =>{
     res.status(200).json({
-        message : "Hi from Register Page"
+        Message : "Hi from Register Page"
     });
 });
 */
@@ -27,7 +27,7 @@ router.get("/",async (res,req,next)=>{
     }
     catch(error){
         res.status(404).json({
-            message : error
+            Message : error
         })
     }
 })
@@ -45,7 +45,7 @@ router.post("/create",async (req,res,next) => {
         console.log(checkData.length);
         if(checkData.length > 0){
             res.status(409).json({
-                message : "Email Address  has already in use",
+                Message : "Email Address  has already in use",
                 status:409,
                 statusMessage:"DUPLICATE"
             });
@@ -77,7 +77,7 @@ router.post("/create",async (req,res,next) => {
         }
     }catch(error){
         console.log(error)
-        res.status(404).json({message:error})
+        res.status(404).json({Message:error})
     }
 })
 

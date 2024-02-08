@@ -15,7 +15,7 @@ router.post("/CreateJournal",async (req,res,next)=>{
 
         if (!checkToken || checkToken.length === 0 || checkToken.length >= 2){
                 res.status(400).json({
-                message: "Token is Invalid",
+                Message: "Token is Invalid",
                 MessageCode: "BADREQUEST",
                 statusCode: 400
             });
@@ -30,7 +30,7 @@ router.post("/CreateJournal",async (req,res,next)=>{
             });
 
             res.status(200).json({
-                message:"Journal Inserted Successfully",
+                Message:"Journal Inserted Successfully",
                 statusCode:200,
                 statusMessage:"SUCCESS"
             })
@@ -39,7 +39,7 @@ router.post("/CreateJournal",async (req,res,next)=>{
     catch(error){
         console.log(error)
         res.status(404).json({
-            message:error,
+            Message:error,
             statusMessage:"FAILURE",
             statusCode:404
         })
@@ -55,15 +55,15 @@ router.get("/GetAllJournal",async(req,res,next) => {
         })
 
         res.status(200).json({
-            statusMessage:"SUCCESS",
+            MessageCode:"SUCCESS",
             statusCode:200,
             data:JornalData
         })
     }
     catch(error){
         res.status(404).json({
-        message:error,
-        statusMessage:"FAILURE",
+        Message:error,
+        MessageCode:"FAILURE",
         statusCode:404
         })
     }
@@ -81,7 +81,7 @@ router.post("/DeleteJournal",async(req,res,next) =>{
 
         if (!checkToken || checkToken.length === 0 || checkToken.length >= 2){
             res.status(400).json({
-            message: "Token is Invalid",
+            Message: "Token is Invalid",
             MessageCode: "BADREQUEST",
             statusCode: 400
         });
@@ -96,9 +96,9 @@ router.post("/DeleteJournal",async(req,res,next) =>{
                 }
             })
             res.status(200).json({
-                message:"Journal Deleted Successfully",
+                Message:"Journal Deleted Successfully",
                 statusCode:200,
-                statusMessage:"SUCCESS"
+                MessageCode:"SUCCESS"
             })
         }
 
@@ -106,8 +106,8 @@ router.post("/DeleteJournal",async(req,res,next) =>{
     }
     catch(error){
         res.status(404).json({
-            message:error,
-            statusMessage:"FAILURE",
+            Message:error,
+            MessageCode:"FAILURE",
             statusCode:404
         })
     }

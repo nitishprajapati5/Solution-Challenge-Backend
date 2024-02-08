@@ -19,7 +19,7 @@ const Registrationflow = async (req,res) =>{
     }
     catch(error){
         res.status(404).json({
-            message : error
+            Message : error
         })
     }
 }
@@ -37,7 +37,7 @@ const createUser = async (req,res) =>{
         console.log(checkData.length);
         if(checkData.length > 0){
             res.status(500).json({
-                message : "Email Address  has already in use"
+                Message : "Email Address  has already in use"
             });
         }
         else{
@@ -50,7 +50,7 @@ const createUser = async (req,res) =>{
                 token:req.body.emailAddress + req.body.confirmPassword,
             }).the((result) =>{
                 res.status(201).json({
-                    message : "User Successfully Created",
+                    Message : "User Successfully Created",
                     data:{
                         emailAddress:req.body.emailAddress,
                         password:req.body.password,
@@ -62,7 +62,7 @@ const createUser = async (req,res) =>{
         }
     }catch(error){
         console.log(error)
-        res.status(404).json({message:error})
+        res.status(404).json({Message:error})
     }
 }
 
