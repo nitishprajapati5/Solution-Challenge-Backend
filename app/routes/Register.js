@@ -59,7 +59,10 @@ router.post("/create",async (req,res,next) => {
                 password:req.body.data.password,
                 confirmPassword:req.body.data.confirmPassword,
                 token:tokenUUID,
-                Name:req.body.data.Name
+                Name:req.body.data.Name,
+                age:req.body.data.age,
+                weight:req.body.data.weight,
+                gender:req.body.data.gender
             }).then((result) =>{
                 res.status(201).json({
                     Message : "User Successfully Created",

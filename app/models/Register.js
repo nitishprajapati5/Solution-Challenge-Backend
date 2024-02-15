@@ -29,6 +29,18 @@ const Register = db.define('Register',{
     token:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    weight:{
+        type:DataTypes.BIGINT,
+        allowNull:true
+    },
+    age:{
+        type:DataTypes.BIGINT,
+        allowNull:true
+    },
+    gender:{
+        type:DataTypes.STRING,
+        allowNull:true
     }
 
 },{
