@@ -3,12 +3,13 @@ const express = require('express');
 const router = express.Router();
 const { Op } = require("sequelize")
 const { v4: uuidv4 } = require('uuid');
-/*router.get('/',(req,res,next) =>{
+
+router.get('/',(req,res,next) =>{
     res.status(200).json({
         Message : "Hi from Register Page"
     });
 });
-*/
+
 
 
 router.get("/",async (res,req,next)=>{
