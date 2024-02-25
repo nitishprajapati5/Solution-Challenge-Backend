@@ -33,19 +33,19 @@ router.post("/createQuote",async(req,res,next) =>{
 
 router.post("/getRandomQuotes", async (req, res, next) => {
     try {
-        const checkToken = await Model.Register.findOne({
-            where: {
-                token: req.body.data.token
-            }
-        });
+        // const checkToken = await Model.Register.findOne({
+        //     where: {
+        //         token: req.body.data.token
+        //     }
+        // });
 
-        if (!checkToken || checkToken.length === 0 || checkToken.length >= 2) {
-            return res.status(400).json({
-                Message: "Invalid Token",
-                MessageCode: "TOKEN_IS_INVALID",
-                statusCode: 400
-            });
-        }
+        // if (!checkToken || checkToken.length === 0 || checkToken.length >= 2) {
+        //     return res.status(400).json({
+        //         Message: "Invalid Token",
+        //         MessageCode: "TOKEN_IS_INVALID",
+        //         statusCode: 400
+        //     });
+        // }
 
         const countRecord = await Model.Quote.count();
 
